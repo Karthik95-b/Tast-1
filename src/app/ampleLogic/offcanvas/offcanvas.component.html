@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="center-container">
+  <button class="start-button" (click)="startProgress()" >Start</button>
+</div>
+
+<app-footer></app-footer>
+  <div class="progress-container" >
+    <span class="toggle-button">
+      <button (click)="toggleProgress()" *ngIf="showIcon">
+        <i class="fas" [ngClass]="showProgressBar ? 'fa-caret-down' : 'fa-caret-up'" aria-hidden="true"></i>
+      </button>
+    </span>
+    <div class="logo-and-text" *ngIf="showProgressBar">
+      <img src="assets/Icon-1.jpg" alt="Logo" class="logo">
+      <div class="text" *ngIf="showProgressBar">
+        <span class="migrate_text">Migrating Data to selected environment</span> 
+        <span class="progress-value">{{ progressValue }}%</span>
+      </div>
+    </div>
+    <div class="progress" *ngIf="showProgressBar">
+      <div class="progress-bar" role="progressbar" [style.width.%]="progressValue">
+      </div>
+    </div>
+  </div>
