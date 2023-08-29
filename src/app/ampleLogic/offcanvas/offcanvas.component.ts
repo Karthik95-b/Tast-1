@@ -30,18 +30,20 @@ export class OffcanvasComponent implements OnInit{
   updateProgress() {
     const interval = setInterval(() => {
       this.progressValue += 10;
-      if (this.progressValue >= 100) {
+      if (this.progressValue >= 110) {
         clearInterval(interval);
         console.log('value',this.progressValue)
         this.showProgressBar = false;
           this.progressValue = 0;
-          this.toaster.success('Migration process has been completed', 'Success',{
-            progressBar: true,
-            progressAnimation:"decreasing"
-          });
-          this.showIcon = false;
+          setTimeout(()=>{
+            this.toaster.success('Migration process has been completed', 'Success',{
+              progressBar: true,
+              progressAnimation:"decreasing"
+            });
+            this.showIcon = false;
+          },500)
       }
-    }, 1000);
+    }, 2000);
   }
   
 }
